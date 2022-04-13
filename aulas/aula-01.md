@@ -131,7 +131,7 @@ A esta altura, já deve estar claro que a descrição de um padrão em uma expre
 
 > A forma correta de escrever *"metacaracteres"* é **"meta caracteres"**. Porém, a forma errada foi tão difundida que chegou a contaminar os resultados de buscas sobre o assunto na internet. Por este motivo, nós achamos melhor perpetuar o erro.
 
-## 2 - Metacaracteres
+## 1.2 - Metacaracteres
 
 Metacaracteres são, como o nome sugere, caracteres que vão além de seu papel normal de símbolos gráficos em um texto. No contexto da construção de expressões regulares, isso significa que alguns caracteres assumirão algum papel especial, que pode ser de:
 
@@ -143,8 +143,8 @@ Metacaracteres são, como o nome sugere, caracteres que vão além de seu papel 
 
 A tabela abaixo mostra os metacaracteres comuns à maioria das implementações de expressões regulares para uso no shell de sistemas *unix-like* e GNU:
 
-| Meta        | Tipo          | Descrição                                                                                       |
-|-------------|---------------|-------------------------------------------------------------------------------------------------|
+| Meta | Tipo | Descrição |
+|---|---|---|
 | `.`         | Representante | Qualquer caractere único.                                                                       |
 | `[...]`     | Representante | Um caractere na lista.                                                                          |
 | `[^...]`    | Representante | Um caractere fora da lista.                                                                     |
@@ -224,7 +224,7 @@ Esse comportamento pode ser alterado por opções explícitas, como a opção `-
 
 > O utilitário `sed` também trabalha com expressões regulares básicas e estendidas.
 
-## 3 - Representantes e classes
+## 1.3 - Representantes e classes
 
 Os metacaracteres representantes são aqueles que, como o nome diz, representam a ocorrência de um (e apenas um) caractere. Nesta categoria encontram-se:
 
@@ -476,7 +476,7 @@ A rigor, quando ouvimos alguém falar de "classes POSIX", é quase certo que est
 ```
 > Dependendo da localidade, pode haver outras classes nomeadas disponíveis.
 
-## 4 - Quantificadores
+## 1.4 - Quantificadores
 
 Por padrão, cada entidade (um caractere textual, um representante ou um padrão agrupado) é tratada como uma ocorrência única e obrigatória no padrão. Para alterar isso, nós temos os metacaracteres quantificadores:
 
@@ -490,7 +490,7 @@ Por padrão, cada entidade (um caractere textual, um representante ou um padrão
 | `{min,}`      | A entidade anterior pode ocorrer pelo menos na quantidade mínima. |
 | `{qtde}`      | Especifica a quantidade exata de ocorrências da entidade anterior. |
 
-## 5 - Âncoras
+## 1.5 - Âncoras
 
 As âncoras não casam com caracteres, mas nos ajudam a especificar a posição da ocorrência de um padrão:
 
@@ -503,7 +503,7 @@ As âncoras não casam com caracteres, mas nos ajudam a especificar a posição 
 
 > Quando falamos das classes, nós vimos que, no contexto das expressões regulares, "palavras" são sequências de caracteres formadas apenas por letras maiúsculas e minúsculas, dígitos e o caractere sublinhado: `[A-Za-z0-9_]`.
 
-## 6 - Operador 'ou'
+## 1.6 - Operador 'ou'
 
 O operador "ou" (representado pelo caractere `|`) expressa padrões alternativos, ou seja, os padrões à esquerda e a direita do `|` são diferentes, mas ambos são válidos para efeito de um casamento:
 
@@ -544,11 +544,11 @@ boa tarde
 boa noite
 ```
 
-## 7 - Grupos
+## 1.7 - Grupos
 
 Os parêntesis `(...)` são utilizados para agrupar subpadrões. Sendo assim, no exemplo anterior, o grupo com os padrões `tarde` e `noite` ainda são parte do padrão iniciado com `boa`. Consequentemente, o primeiro operador `|` da nossa expressão está lidando com os padrões alternativos `bom dia` e `boa (tarde|noite)`.
 
-## 8 - Referências prévias (retrovisores)
+## 1.8 - Referências prévias (retrovisores)
 
 Uma consequência do uso de agrupamentos, é que o mecanismo das expressões regulares faz um registro de todos os trechos casados com subpadrões na ordem em que são encontrados. Então, ainda no exemplo anterior, a *string* casada com o padrão `(tarde|noite)` ficará registrada e poderá ser referenciada na expressão regular pelo operador numerado `\1`:
 
@@ -558,7 +558,7 @@ bom dia
 boa noite noite
 ```
 
-## 9 - Casamentos 'gulosos' (greedy)
+## 1.9 - Casamentos 'gulosos' (greedy)
 
 Por padrão, as implementações de expressões regulares POSIX e GNU nos modos básico (BRE) e estendido (ERE) sempre tentarão casar o padrão com a maior sequência de caracteres possível. Esse comportamento é chamado de casamento ganancioso (*greedy*) ou, como Aurélio Jargas e Julio Neves costumam dizer, "guloso". Normalmente, isso não afeta a maior parte dos usos das expressões regulares: localizar linhas de texto que casem com o padrão, por exemplo. Contudo, quando se trata de extrair e processar apenas a parte casada, isso se torna um problema.
 
@@ -614,7 +614,7 @@ Portanto, isso é possível:
 blau:x:1000:
 ```
 
-## Operadores estendidos do Perl
+## 1.10 - Operadores estendidos do Perl
 
 Ainda entre as novidades do Perl 5, agora nós temos operadores capazes de dotar as expressões regulares de recursos que, originalmente, ficariam para os comandos e utilitários do shell encarregados pelo pós-processamento dos resultados obtidos.
 
