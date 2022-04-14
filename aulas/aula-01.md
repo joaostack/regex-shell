@@ -1,8 +1,14 @@
-# Aula 1 - O que são expressões regulares
+# Curso de expressões regulares
+
+## Conteúdo
+
+
+
+## 1 - O que são expressões regulares
 
 Expressões regulares (ou *regex*, de __reg__ular __ex__pression, como é popularmente conhecida) são expressões que descrevem padrões capazes de representar conjuntos de textos. Sua principal finalidade é localizar sequências de caracteres que correspondam aos padrões descritos -- quando a correspondência é encontrada, nós dizemos que houve um "casamento" (*match*, em inglês).
 
-## 1.1 Como assim, "padrões"?
+## 2 - Como assim, "padrões"?
 
 Um padrão diz respeito a qualquer conjunto de elementos que caracterizem o texto buscado. Por exemplo, se observarmos as linhas do arquivo `/etc/passwd`, nós veremos que todas elas contém campos de dados separados pelo caractere `:`.
 
@@ -131,7 +137,7 @@ A esta altura, já deve estar claro que a descrição de um padrão em uma expre
 
 > A forma correta de escrever *"metacaracteres"* é **"meta caracteres"**. Porém, a forma errada foi tão difundida que chegou a contaminar os resultados de buscas sobre o assunto na internet. Por este motivo, nós achamos melhor perpetuar o erro.
 
-## 1.2 - Metacaracteres
+## 3 - Metacaracteres
 
 Metacaracteres são, como o nome sugere, caracteres que vão além de seu papel normal de símbolos gráficos em um texto. No contexto da construção de expressões regulares, isso significa que alguns caracteres assumirão algum papel especial, que pode ser de:
 
@@ -168,9 +174,7 @@ A tabela abaixo mostra os metacaracteres comuns à maioria das implementações 
 
 > Com esses metacaracteres, é possível representar praticamente qualquer padrão de texto.
 
-### Importante!
-
-Os metacaracteres `?`, `*` e a lista `[...]` não devem ser confundidos com aqueles utilizados na formação de padrões de nomes de arquivos. A rigor, seus equivalentes em expressões regulares seriam:
+**Importante!** Os metacaracteres `?`, `*` e a lista `[...]` não devem ser confundidos com aqueles utilizados na formação de padrões de nomes de arquivos. A rigor, seus equivalentes em expressões regulares seriam:
 
 | Shell    | Regex    | Descrição                              |
 |----------|----------|----------------------------------------|
@@ -179,7 +183,7 @@ Os metacaracteres `?`, `*` e a lista `[...]` não devem ser confundidos com aque
 | `[...]`  | `[...]`  | Exatamente um caractere da lista.      |
 | `[!...]` | `[^...]` | Exatamente um caractere fora da lista. |
 
-### O metacaractere de escape
+### 3.1 - O metacaractere de escape
 
 Embora seja sempre lembrado por remover os "poderes especiais" de metacaracteres (*kriptonita*, como diz Aurélio Jargas), a barra invertida também faz com que caracteres normais ganhem "poderes especiais", como acontece com algumas classes de caracteres (`\s`, `\w`, etc...), as âncoras das bordas (`\b` e `\B`) e com os retrovisores (`\1...\9`).
 
@@ -224,7 +228,7 @@ Esse comportamento pode ser alterado por opções explícitas, como a opção `-
 
 > O utilitário `sed` também trabalha com expressões regulares básicas e estendidas.
 
-## 1.3 - Representantes e classes
+### 3.2 - Representantes e classes
 
 Os metacaracteres representantes são aqueles que, como o nome diz, representam a ocorrência de um (e apenas um) caractere. Nesta categoria encontram-se:
 
@@ -236,7 +240,7 @@ Os metacaracteres representantes são aqueles que, como o nome diz, representam 
 
 > Uma nota importante antes de entrarmos nos próximos exemplos, é que o `grep` sempre retorna **linhas inteiras** que contenham o padrão descrito na expressão regular. Para obter apenas as partes das linhas que casarem com o padrão, é preciso informar a opção `-o` (*only*). Deste modo, cada correspondência encontrada será exibida em uma linha na saída.
 
-### Ponto
+### 3.3 - O ponto
 
 O ponto casa com exatamente um caractere qualquer:
 
@@ -292,7 +296,7 @@ Se o que acabamos de dizer está correto, como você explica a saída abaixo?
 :~$
 ```
 
-### Lista
+### 3.4 - Lista
 
 Ao contrário do ponto, a lista só permite o casamento com caracteres especificados entre os colchetes, o que permite a construção de expressões regulares bem mais específicas.
 
@@ -385,7 +389,7 @@ Como o traço (`-`) é utilizado para expressar faixas de caracteres, ele també
 
 > É mais comum vermos o traço sendo utilizado na última posição da lista, mas isso não é uma regra.
 
-### Lista negada
+### 3.5 - Lista negada
 
 A lista negada segue o mesmo conceito de uma lista normal, a diferença é que o casamento será feito com quaisquer outros caracteres que não estejam listados.
 
@@ -407,7 +411,7 @@ c
 
 > Observe que o padrão negado também casou com os espaços da string.
 
-### Classes de caracteres
+### 3.6 - Classes de caracteres
 
 As listas são uma excelente forma de representar um conjunto restrito de caracteres, mas podem se tornar bastante longas e difíceis de ler em algumas situações. Para simplificar, nós temos algumas classes de caracteres, que são a predefinição de certas listas de uso frequente, por exemplo:
 
@@ -422,7 +426,7 @@ Dependendo da implementação das expressões regulares, nós ainda podemos enco
 
 > Na literatura estrangeira, as classes de caracteres simbolizadas por uma sequência de escape também são chamadas de "operadores".
 
-### Classes POSIX
+### 3.7 Classes POSIX
 
 As normas POSIX especificam alguns recursos adicionais que podem ser utilizados em listas: os elementos de coleções, as equivalências e as classes nomeadas.
 
@@ -456,7 +460,7 @@ No contexto de uma expressão regular, portanto, o caractere `a` e suas versões
 [á]rvore [a]cento [á]tomo peixe set[a]
 ```
 
-#### Classes nomeadas
+### 3.8 - Classes nomeadas
 
 A rigor, quando ouvimos alguém falar de "classes POSIX", é quase certo que estão se referindo às classes nomeadas das normas POSIX, que são predefinições de conjuntos de caracteres válidos para ocuparem a posição de um elemento nas listas:
 
@@ -476,7 +480,7 @@ A rigor, quando ouvimos alguém falar de "classes POSIX", é quase certo que est
 ```
 > Dependendo da localidade, pode haver outras classes nomeadas disponíveis.
 
-## 1.4 - Quantificadores
+### 3.9 - Quantificadores
 
 Por padrão, cada entidade (um caractere textual, um representante ou um padrão agrupado) é tratada como uma ocorrência única e obrigatória no padrão. Para alterar isso, nós temos os metacaracteres quantificadores:
 
@@ -490,7 +494,7 @@ Por padrão, cada entidade (um caractere textual, um representante ou um padrão
 | `{min,}`      | A entidade anterior pode ocorrer pelo menos na quantidade mínima. |
 | `{qtde}`      | Especifica a quantidade exata de ocorrências da entidade anterior. |
 
-## 1.5 - Âncoras
+### 3.10 - Âncoras
 
 As âncoras não casam com caracteres, mas nos ajudam a especificar a posição da ocorrência de um padrão:
 
@@ -503,7 +507,7 @@ As âncoras não casam com caracteres, mas nos ajudam a especificar a posição 
 
 > Quando falamos das classes, nós vimos que, no contexto das expressões regulares, "palavras" são sequências de caracteres formadas apenas por letras maiúsculas e minúsculas, dígitos e o caractere sublinhado: `[A-Za-z0-9_]`.
 
-## 1.6 - Operador 'ou'
+### 3.11 - Operador 'ou'
 
 O operador "ou" (representado pelo caractere `|`) expressa padrões alternativos, ou seja, os padrões à esquerda e a direita do `|` são diferentes, mas ambos são válidos para efeito de um casamento:
 
@@ -544,11 +548,11 @@ boa tarde
 boa noite
 ```
 
-## 1.7 - Grupos
+### 3.12 - Grupos
 
 Os parêntesis `(...)` são utilizados para agrupar subpadrões. Sendo assim, no exemplo anterior, o grupo com os padrões `tarde` e `noite` ainda são parte do padrão iniciado com `boa`. Consequentemente, o primeiro operador `|` da nossa expressão está lidando com os padrões alternativos `bom dia` e `boa (tarde|noite)`.
 
-## 1.8 - Referências prévias (retrovisores)
+### 3.13 - Referências prévias (retrovisores)
 
 Uma consequência do uso de agrupamentos, é que o mecanismo das expressões regulares faz um registro de todos os trechos casados com subpadrões na ordem em que são encontrados. Então, ainda no exemplo anterior, a *string* casada com o padrão `(tarde|noite)` ficará registrada e poderá ser referenciada na expressão regular pelo operador numerado `\1`:
 
@@ -558,7 +562,7 @@ bom dia
 boa noite noite
 ```
 
-## 1.9 - Casamentos 'gulosos' (greedy)
+## 4 - Casamentos 'gulosos' (greedy)
 
 Por padrão, as implementações de expressões regulares POSIX e GNU nos modos básico (BRE) e estendido (ERE) sempre tentarão casar o padrão com a maior sequência de caracteres possível. Esse comportamento é chamado de casamento ganancioso (*greedy*) ou, como Aurélio Jargas e Julio Neves costumam dizer, "guloso". Normalmente, isso não afeta a maior parte dos usos das expressões regulares: localizar linhas de texto que casem com o padrão, por exemplo. Contudo, quando se trata de extrair e processar apenas a parte casada, isso se torna um problema.
 
@@ -594,7 +598,7 @@ Ou ainda:
 blau:x:1000
 ```
 
-### Quantificadores dobrados
+## 5 - Quantificadores dobrados
 
 Em meados dos anos 1990, a versão 5 da linguagem Perl introduziu uma série de novos operadores de expressões regulares, entre eles, o modificador de quantificadores (ou "quantificadores dobrados"), que visa justamente implementar a possibilidade de realizar um casamento com a mínima sequência de caracteres que corresponda ao padrão. Então, nas especificações do Perl 5, todo quantificador seguido de `?` (que, em princípio, também é um quantificador, daí o "dobrado") indicará um casamento "não-guloso":
 
@@ -614,11 +618,11 @@ Portanto, isso é possível:
 blau:x:1000:
 ```
 
-## 1.10 - Operadores estendidos do Perl
+## 6 - Operadores estendidos do Perl
 
 Ainda entre as novidades do Perl 5, agora nós temos operadores capazes de dotar as expressões regulares de recursos que, originalmente, ficariam para os comandos e utilitários do shell encarregados pelo pós-processamento dos resultados obtidos.
 
-### Estrutura
+#### Estrutura
 
 De modo geral, os operadores estendidos se parecem muito com agrupamentos (e, de fato, eles agrupam) iniciados com `?`:
 
@@ -628,7 +632,7 @@ De modo geral, os operadores estendidos se parecem muito com agrupamentos (e, de
 
 Onde o `IDENTIFICADOR` determina o tipo de operador e `CONTEÚDO` é o trecho da expressão regular que será afetado.
 
-### Alguns operadores estendidos
+### 6.1 - Alguns operadores estendidos
 
 Tendo em vista que estamos falando de expressões regulares no **shell GNU**, e que nem todos os recursos PCRE estão implementados, nós vamos nos limitar a alguns operadores estendidos mais comuns que podem ser úteis sem ferir muito a *filosofia Unix*.
 
@@ -642,7 +646,7 @@ Tendo em vista que estamos falando de expressões regulares no **shell GNU**, e 
 | `(?<!PADRÃO)` | Asserção negativa anterior de comprimento zero |
 | `\K`          | Exclui os padrões casados anteriormente |
 
-### Comentários '(?#TEXTO)'
+### 6.2 - Comentários '(?#TEXTO)'
 
 O agrupamento é ignorado na sua função de padrão e, portanto, não participa do casamento:
 
@@ -654,7 +658,7 @@ O agrupamento é ignorado na sua função de padrão e, portanto, não participa
 
 > Os colchetes indicam os padrões casados na saída do `grep`.
 
-### Grupo não capturado '(?:PADRÃO)'
+### 6.3 - Grupo não capturado '(?:PADRÃO)'
 
 O subpadrão participa do casamento, mas não recebe um registro numerado (`\1`, `\2`, etc...):
 
@@ -666,7 +670,7 @@ quero-quero
 grep: reference to non-existent subpattern
 ```
 
-### Asserção positiva à frente '(?=PADRÃO)'
+### 6.4 - Asserção positiva à frente '(?=PADRÃO)'
 
 Uma **asserção positiva** é um padrão agrupado que deve encontrar, obrigatoriamente, um casamento na *string*, mas não é tratada como parte do resultado -- daí ser definida como **de comprimento zero**. No caso do operador de asserção positiva ***à frente*** (*lookahead*), o mecanismo de avaliação da expressão regular verifica se o padrão agrupado adiante possui correspondência para considerar se haverá ou não um casamento com a *string*:
 
@@ -689,7 +693,7 @@ Isso é útil em situações onde queremos obter apenas uma parte no começo da 
 grep: reference to non-existent subpattern
 ```
 
-### Asserção negativa à frente '(?!PADRÃO)'
+### 6.5 - Asserção negativa à frente '(?!PADRÃO)'
 
 Ao contrário da asserção positiva, uma asserção negativa determina um padrão que não pode ser casado:
 
@@ -698,7 +702,7 @@ Ao contrário da asserção positiva, uma asserção negativa determina um padr�
 [salada] de frutas
 ```
 
-### Asserção positiva anterior '(?<=PADRÃO)'
+### 6.6 - Asserção positiva anterior '(?<=PADRÃO)'
 
 Funciona como a asserção positiva à frente, mas condicionando os padrões seguintes ao casamento do padrão agrupado anteriormente (*lookbehind*):
 
@@ -707,7 +711,7 @@ Funciona como a asserção positiva à frente, mas condicionando os padrões seg
 leite [quente]
 ```
 
-### Asserção negativa anterior '(?<!PADRÃO)'
+### 6.7 - Asserção negativa anterior '(?<!PADRÃO)'
 
 Condiciona os padrões seguintes ao **não casamento** do padrão agrupado anteriormente:
 
@@ -716,7 +720,7 @@ Condiciona os padrões seguintes ao **não casamento** do padrão agrupado anter
 muito [quente]
 ```
 
-### Operador '\K'
+### 6.8 - Operador '\K'
 
 Introduzido na PCRE7.2, o operador `\K` também estabelece uma asserção positiva anterior (*lookbehind*), mas não está limitada a um padrão agrupado: ou seja, todos os padrões que vierem antes dele participarão do mecanismo de casamento, mas serão descartados no resultado da avaliação da expressão regular:
 
