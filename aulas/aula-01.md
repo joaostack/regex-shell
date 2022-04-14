@@ -1,8 +1,36 @@
-# Curso de expressões regulares
+# Curso de expressões regulares no shell do GNU/Linux
 
 ## Conteúdo
 
+- [1 - O que são expressões regulares](#1-o-que-s%C3%A3o-express%C3%B5es-regulares)
+- [2 - Como assim, "padrões"?](#2-como-assim-padr%C3%B5es)
+- [3 - Metacaracteres](#3-metacaracteres)
+  - [3.1 - O metacaractere de escape](#3-1-o-metacaractere-de-escape)
+  - [3.2 - Representantes e classes](#3-2-representantes-e-classes)
+  - [3.3 - O ponto](#3-3-o-ponto)
+  - [3.4 - Lista](#3-4-lista)
+  - [3.5 - Lista negada](#3-5-lista-negada)
+  - [3.6 - Classes de caracteres](#3-6-classes-de-caracteres)
+  - [3.7 - Classes POSIX](#3-7-classes-posix)
+  - [3.8 - Classes nomeadas](#3-8-classes-nomeadas)
+  - [3.9 - Quantificadores](#3-9-quantificadores)
+  - [3.10 - Âncoras](#3-10-%C3%A2ncoras)
+  - [3.11 - Operador 'ou'](#3-11-operador-ou)
+  - [3.12 - Grupos](#3-12-grupos)
+  - [3.13 - Referências prévias (retrovisores)](#3-13-refer%C3%AAncias-pr%C3%A9vias-retrovisores)
+- [4 - Casamentos 'gulosos' (greedy)](#4-casamentos-gulosos-greedy)
+- [5 - Quantificadores dobrados](#5-quantificadores-dobrados)
+- [6 - Operadores estendidos do Perl](#6-operadores-estendidos-do-perl)
+  - [6.1 - Alguns operadores estendidos](#6-1-alguns-operadores-estendidos)
+  - [6.2 - Comentários '(?#TEXTO)'](#6-2-coment%C3%A1rios-texto)
+  - [6.3 - Grupo não capturado '(?:PADRÃO)'](#6-3-grupo-n%C3%A3o-capturado-padr%C3%A3o)
+  - [6.4 - Asserção positiva à frente '(?=PADRÃO)'](#6-4-asser%C3%A7%C3%A3o-positiva-%C3%A0-frente-padr%C3%A3o)
+  - [6.5 - Asserção negativa à frente '(?!PADRÃO)'](#6-5-asser%C3%A7%C3%A3o-negativa-%C3%A0-frente-padr%C3%A3o)
+  - [6.6 - Asserção positiva anterior '(?<=PADRÃO)'](#6-6-asser%C3%A7%C3%A3o-positiva-anterior-padr%C3%A3o)
+  - [6.7 - Asserção negativa anterior '(?<!PADRÃO)'](#6-7-asser%C3%A7%C3%A3o-negativa-anterior-padr%C3%A3o)
+  - [6.8 - Operador '\K'](#6-8-operador-k)
 
+---
 
 ## 1 - O que são expressões regulares
 
@@ -426,7 +454,7 @@ Dependendo da implementação das expressões regulares, nós ainda podemos enco
 
 > Na literatura estrangeira, as classes de caracteres simbolizadas por uma sequência de escape também são chamadas de "operadores".
 
-### 3.7 Classes POSIX
+### 3.7 - Classes POSIX
 
 As normas POSIX especificam alguns recursos adicionais que podem ser utilizados em listas: os elementos de coleções, as equivalências e as classes nomeadas.
 
