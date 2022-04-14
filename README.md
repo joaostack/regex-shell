@@ -6,7 +6,7 @@ Este é um curso majoritariamente prático, razão pela qual temos apenas uma au
 
 ## Links importantes
 
-* [Conteúdo do curso](aulas/README.md)
+* [Conteúdo do curso](aulas/)
 * [Vídeos e textos para aprender o shell do GNU/Linux](https://codeberg.org/blau_araujo/para-aprender-shell)
 * [Dúvidas sobre os tópicos do curso (issues)](https://codeberg.org/blau_araujo/regex-shell/issues)
 * [Discussões sobre os tópicos de todos os nossos cursos (Gitter)](https://gitter.im/blau_araujo/community)
