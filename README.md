@@ -4,6 +4,8 @@ Repositório de recursos do curso de expressões regulares no shell GNU/Linux.
 
 Este é um curso majoritariamente prático, razão pela qual temos apenas uma aula em texto (em revisão).
 
+![](https://blauaraujo.com/wp-content/uploads/2022/05/cafezinho-01.png)
+
 ## Links importantes
 
 * [Conteúdo do curso](aulas/)
