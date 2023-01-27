@@ -4,7 +4,7 @@ Repositório dos arquivos utilizados no curso.
 
 [Inscrições abertas!](https://blauaraujo.com/regex)
 
-## arquivos
+## Arquivos
 
 - Tabela geral de expressões regulares
 - Expressões regurares compatíveis com o Perl (PCRE)
