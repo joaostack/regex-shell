@@ -8,7 +8,7 @@ Repositório dos arquivos utilizados no curso.
 
 - [Tabela geral de expressões regulares](aulas/tabela-geral.md)
 - [Expressões regurares compatíveis com o Perl (PCRE)](aulas/pcre.md)
-- Exemplos
+- [Exemplos](exemplos/)
 - Exercícios
 
 ## Links importantes
