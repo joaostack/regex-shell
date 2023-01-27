@@ -6,8 +6,8 @@ Repositório dos arquivos utilizados no curso.
 
 ## Arquivos
 
-- Tabela geral de expressões regulares
-- Expressões regurares compatíveis com o Perl (PCRE)
+- [Tabela geral de expressões regulares](aulas/tabela-geral.md)
+- [Expressões regurares compatíveis com o Perl (PCRE)](aulas/pcre.md)
 - Exemplos
 - Exercícios
 
