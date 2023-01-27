@@ -1,22 +1,28 @@
-# Expressões regulares no shell do GNU/Linux
+# Curso intensivo de expressões regulares no GNU/Linux
 
-Repositório de recursos do curso de expressões regulares no shell GNU/Linux.
+Repositório dos arquivos utilizados no curso.
 
-Este é um curso majoritariamente prático, razão pela qual temos apenas uma aula em texto (em revisão).
+[Inscrições abertas!](https://blauaraujo.com/regex)
 
-![](https://blauaraujo.com/wp-content/uploads/2022/05/cafezinho-01.png)
+## arquivos
+
+- Tabela geral de expressões regulares
+- Expressões regurares compatíveis com o Perl (PCRE)
+- Exemplos
+- Exercícios
 
 ## Links importantes
 
-* [Conteúdo do curso](aulas/)
-* [Vídeos e textos para aprender o shell do GNU/Linux](https://codeberg.org/blau_araujo/para-aprender-shell)
+* [Apostila completa (inclui o casamento de padrões no Bash)](https://blauaraujo.com/downloads/shell-pattern-matching.pdf)
 * [Dúvidas sobre os tópicos do curso (issues)](https://codeberg.org/blau_araujo/regex-shell/issues)
-* [Discussões sobre os tópicos de todos os nossos cursos (Gitter)](https://gitter.im/blau_araujo/community)
-
+* [Vídeos e textos para aprender o shell do GNU/Linux na faixa](https://blauaraujo.com/cursos-livres-e-gratuitos/)
 
 ## Formas de apoio
+
+Inscrevendo-se nos cursos, pingando um troquinho mensal no Apoia.se ou mandando um cafezinho de vez em quando, você me ajuda a produzir conteúdos livres e gratuitos para a galera toda aprender.
+
+![](https://blauaraujo.com/wp-content/uploads/2022/05/cafezinho-01.png)
 
 * [Apoio mensal pelo Apoia.se](https://apoia.se/debxpcursos)
 * [Doações pelo PicPay](https://app.picpay.com/user/blauaraujo)
 * Doações via PIX: pix@blauaraujo.com
-* [Versão impressa do Pequeno Manual do Programador GNU/Bash](https://blauaraujo.com/2022/02/17/versao-impressa-do-pequeno-manual-do-programador-gnu-bash/)
