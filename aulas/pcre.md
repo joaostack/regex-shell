@@ -3,7 +3,7 @@
 ## Quantificadores dobrados
 
 | Modificador  | Descrição                        |
-|--------------+----------------------------------|
+|--------------|----------------------------------|
 | `??`         | Zero ou um "não-guloso".         |
 | `*?`         | Zero ou mais "não-guloso".       |
 | `+?`         | Um ou mais "não-guloso".         |
@@ -13,7 +13,7 @@
 ## Operadores estendidos do Perl
 
 | Operador      | Descrição                                      |
-|---------------+------------------------------------------------|
+|---------------|------------------------------------------------|
 | `(?#TEXTO)`   | Comentário                                     |
 | `(?:PADRÃO)`  | Grupo não capturado                            |
 | `(?=PADRÃO)`  | Asserção positiva à frente de comprimento zero |
